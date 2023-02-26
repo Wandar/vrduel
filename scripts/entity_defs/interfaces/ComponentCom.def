@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties></Properties>
+	<BaseMethods>
+		<tryDestroy></tryDestroy>
+	</BaseMethods>
+	<CellMethods>
+		<tryDestroy></tryDestroy>
+	</CellMethods>
+	<ClientMethods></ClientMethods>
+</root>

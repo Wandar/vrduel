@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties>
+		<hasCardSuggestion>
+			<Type>BOOL</Type>
+			<Flags>BASE</Flags>
+			<Persistent>true</Persistent>
+			<Default>0</Default>
+		</hasCardSuggestion>
+	</Properties>
+	<BaseMethods></BaseMethods>
+	<CellMethods></CellMethods>
+	<ClientMethods></ClientMethods>
+</root>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties>
+		<c_duelID>
+			<Type>UINT64</Type>
+			<Flags>ALL_CLIENTS</Flags>
+			<Default>0</Default>
+		</c_duelID>
+		<c_cardData>
+			<Type>CardData</Type>
+			<Flags>ALL_CLIENTS</Flags>
+		</c_cardData>
+		<c_isWaitingForDestroy>
+			<Type>BOOL</Type>
+			<Flags>ALL_CLIENTS</Flags>
+			<Default>0</Default>
+		</c_isWaitingForDestroy>
+	</Properties>
+	<BaseMethods></BaseMethods>
+	<CellMethods></CellMethods>
+	<ClientMethods>
+		<playanimSyncCardData></playanimSyncCardData>
+		<playanimSummon>
+			<Arg>CardData</Arg>
+		</playanimSummon>
+		<playanimAttack>
+			<Arg>ID</Arg>
+			<Arg>INT16</Arg>
+		</playanimAttack>
+	</ClientMethods>
+</root>

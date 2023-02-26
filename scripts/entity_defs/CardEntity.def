@@ -1,0 +1,25 @@
+<root>
+    <Volatile>
+        <position/>
+        <yaw/>
+        <pitch/>
+        <roll/>
+    </Volatile>
+
+    <Interfaces>
+        <Interface>ComponentCom</Interface>
+        <Interface>CardEntityCom</Interface>
+    </Interfaces>
+
+    <Properties>
+    </Properties>
+
+    <BaseMethods>
+    </BaseMethods>
+
+    <CellMethods>
+    </CellMethods>
+
+    <ClientMethods>
+    </ClientMethods>
+</root>

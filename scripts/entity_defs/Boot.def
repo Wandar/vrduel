@@ -1,0 +1,21 @@
+<root>
+    <Volatile>
+    </Volatile>
+
+    <Interfaces>
+        <Interface>ComponentCom</Interface>
+        <Interface>BootCom</Interface>
+    </Interfaces>
+
+    <Properties>
+    </Properties>
+
+    <BaseMethods>
+    </BaseMethods>
+
+    <CellMethods>
+    </CellMethods>
+
+    <ClientMethods>
+    </ClientMethods>
+</root>

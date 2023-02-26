@@ -1,0 +1,21 @@
+<root>
+    <Volatile>
+    </Volatile>
+
+    <Interfaces>
+        <Interface>SpaceComponentCom</Interface>
+        <Interface>SpaceCom</Interface>
+    </Interfaces>
+
+    <Properties>
+    </Properties>
+
+    <BaseMethods>
+    </BaseMethods>
+
+    <CellMethods>
+    </CellMethods>
+
+    <ClientMethods>
+    </ClientMethods>
+</root>

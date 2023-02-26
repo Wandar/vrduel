@@ -1,0 +1,29 @@
+<root>
+    <Volatile>
+        <position/>
+        <yaw/>
+        <pitch/>
+        <roll/>
+    </Volatile>
+
+    <Interfaces>
+        <Interface>ComponentCom</Interface>
+        <Interface>GameManagerCom</Interface>
+        <Interface>SpaceManagerCom</Interface>
+        <Interface>AccountManagerCom</Interface>
+        <!--<Interface>DataLoaderManagerCom</Interface>-->
+    </Interfaces>
+
+    <Properties>
+    </Properties>
+
+    <BaseMethods>
+
+    </BaseMethods>
+
+    <CellMethods>
+    </CellMethods>
+
+    <ClientMethods>
+    </ClientMethods>
+</root>

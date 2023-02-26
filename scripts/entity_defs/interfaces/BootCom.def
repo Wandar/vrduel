@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties></Properties>
+	<BaseMethods>
+		<reset></reset>
+		<destroyGameManager></destroyGameManager>
+		<onVerifierDisconnect>
+			<Arg>UINT8</Arg>
+		</onVerifierDisconnect>
+		<requestCheckBuy>
+			<Arg>CALL</Arg>
+			<Arg>STRING</Arg>
+			<Arg>STRING</Arg>
+		</requestCheckBuy>
+		<onCheckBuyRecv>
+			<Arg>STRING</Arg>
+		</onCheckBuyRecv>
+	</BaseMethods>
+	<CellMethods></CellMethods>
+	<ClientMethods></ClientMethods>
+</root>

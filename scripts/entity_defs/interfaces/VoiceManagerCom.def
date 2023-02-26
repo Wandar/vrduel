@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties></Properties>
+	<BaseMethods>
+		<reqFreeVoiceAddress>
+			<Arg>CALL</Arg>
+		</reqFreeVoiceAddress>
+		<sendVoiceAddressPlayerCnt>
+			<Arg>ID</Arg>
+			<Arg>STRING</Arg>
+			<Arg>UINT32</Arg>
+		</sendVoiceAddressPlayerCnt>
+		<delVoiceAddressPlayerCnt>
+			<Arg>ID</Arg>
+			<Arg>STRING</Arg>
+		</delVoiceAddressPlayerCnt>
+	</BaseMethods>
+	<CellMethods></CellMethods>
+	<ClientMethods></ClientMethods>
+</root>

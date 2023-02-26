@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties>
+		<increID>
+			<Type>UINT64</Type>
+			<Flags>BASE</Flags>
+			<Persistent>true</Persistent>
+			<Default>1000</Default>
+		</increID>
+	</Properties>
+	<BaseMethods>
+		<shareDeck></shareDeck>
+		<getDeckByID></getDeckByID>
+		<reqRandomDecks></reqRandomDecks>
+	</BaseMethods>
+	<CellMethods></CellMethods>
+	<ClientMethods></ClientMethods>
+</root>

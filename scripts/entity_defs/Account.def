@@ -1,0 +1,22 @@
+<root>
+	<Properties>
+
+	</Properties>
+
+	<Interfaces>
+		<Interface>ComponentCom</Interface>
+		<Interface>AccountCom</Interface>
+	</Interfaces>
+
+	<ClientMethods>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+	</BaseMethods>
+
+	<CellMethods>
+	</CellMethods>
+
+</root>

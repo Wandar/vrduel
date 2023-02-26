@@ -1,0 +1,13 @@
+/.idea
+*.log
+*.log.*
+*.exe.lnk
+*.pyc
+res/server/kbengine.xml
+res/server/email_service.xml
+*.iml
+*.tar
+*.fods#
+/test
+/sec
+clientPath.txt

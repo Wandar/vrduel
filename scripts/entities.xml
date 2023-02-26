@@ -1,0 +1,8 @@
+<root>
+	
+	<Boot />
+	<GameManager />
+	<Space />
+	<Account hasClient="true" />
+	<Avatar hasClient="true" />
+<Hand hasClient="true" /><CardEntity hasClient="true" /><TestObject hasClient="true" /></root>

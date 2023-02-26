@@ -1,0 +1,226 @@
+<root>
+	<CALL>ENTITYCALL</CALL>
+	<BOOL>UINT8</BOOL>
+	<ANID>INT32</ANID>
+	<ERROR>INT8</ERROR>
+	<U8SCALE>UINT8</U8SCALE>
+	<I8RAD>INT8</I8RAD>
+    <CARDID>UINT32</CARDID>
+	<!--UINT8-->
+	<!--UINT16-->
+	<!--UINT32-->
+	<!--UINT64-->
+	<!--INT8-->
+	<!--INT16-->
+	<!--INT32-->
+	<!--INT64-->
+	<!--FLOAT-->
+	<!--DOUBLE-->
+	<!--STRING-->
+	<!--VECTOR234-->
+	<!--PYTHON-->
+	<!--UNICODE-->
+	<!--ENTITYCALL-->
+	<!--BLOB-->
+	<!--ARRAY-->
+	<!--FIXED_DICT-->
+
+	<OBJECT_ID>			INT32		</OBJECT_ID>
+	<CONTROLLER_ID>		INT32		</CONTROLLER_ID>
+	<EXPERIENCE>		INT32		</EXPERIENCE>
+	<SKILLID>			INT32		</SKILLID>
+	<QUESTID>			INT32		</QUESTID>
+	<DBID>				UINT64		</DBID>
+	<UID>				UINT64		</UID>
+	<UID1>				PYTHON		</UID1>
+	<ID>			INT32		</ID>
+	<ENID>			INT32		</ENID>
+	<ENTITY_NO>			UINT32		</ENTITY_NO>
+	<SPACE_ID>			UINT32		</SPACE_ID>
+	<POSITION3D>		VECTOR3		</POSITION3D>
+	<DIRECTION3D>		VECTOR3		</DIRECTION3D>
+	<ENTITY_UTYPE>		UINT32		</ENTITY_UTYPE>
+
+
+	<!--#####################generate-->
+    <BannerData>FIXED_DICT
+        <implementedBy>UserType.BannerData</implementedBy>
+        <Properties>
+            <title>
+                <Type>STRING</Type>
+            </title>
+            <text>
+                <Type>STRING</Type>
+            </text>
+            <options>
+                <Type>ARRAY
+                    <of>STRING</of>
+                </Type>
+            </options>
+            <cb>
+                <Type>STRING</Type>
+            </cb>
+        </Properties>
+    </BannerData>
+    <CardData>FIXED_DICT
+        <implementedBy>UserType.CardData</implementedBy>
+        <Properties>
+            <id>
+                <Type>INT32</Type>
+            </id>
+            <ID>
+                <Type>INT8</Type>
+            </ID>
+            <uniID>
+                <Type>INT32</Type>
+            </uniID>
+            <entityID>
+                <Type>INT32</Type>
+            </entityID>
+            <mana>
+                <Type>INT8</Type>
+            </mana>
+            <level>
+                <Type>UINT8</Type>
+            </level>
+            <attack>
+                <Type>INT16</Type>
+            </attack>
+            <defense>
+                <Type>INT16</Type>
+            </defense>
+            <health>
+                <Type>INT16</Type>
+            </health>
+            <isFace>
+                <Type>BOOL</Type>
+            </isFace>
+            <isVel>
+                <Type>BOOL</Type>
+            </isVel>
+            <color>
+                <Type>UINT8</Type>
+            </color>
+            <acce>
+                <Type>STRING</Type>
+            </acce>
+        </Properties>
+    </CardData>
+    <DuelPlace>FIXED_DICT
+        <implementedBy>UserType.DuelPlace</implementedBy>
+        <Properties>
+            <placeID>
+                <Type>UINT8</Type>
+            </placeID>
+            <p1>
+                <Type>VECTOR3</Type>
+            </p1>
+            <p2>
+                <Type>VECTOR3</Type>
+            </p2>
+        </Properties>
+    </DuelPlace>
+    <MyType>FIXED_DICT
+        <implementedBy>UserType.MyType</implementedBy>
+        <Properties>
+            <cc>
+                <Type>UINT8</Type>
+            </cc>
+            <dd>
+                <Type>UINT8</Type>
+            </dd>
+        </Properties>
+    </MyType>
+    <!--end_generate##########################-->
+
+
+    <SIMPLE_CARD_DATA>FIXED_DICT
+        <Properties>
+            <i>
+                <Type>INT32</Type>
+            </i>
+            <n>
+                <Type>UINT16</Type>
+            </n>
+        </Properties>
+    </SIMPLE_CARD_DATA>
+
+    <STORE_DECK_DATA>FIXED_DICT
+        <Properties>
+            <name>
+                <Type>UNICODE</Type>
+            </name>
+            <data>
+                <Type>STRING</Type>
+            </data>
+        </Properties>
+    </STORE_DECK_DATA>
+
+<!--    用于覆盖在场上的牌,覆盖场上的牌没人知道CardData是什么,持有者通过这个变量来得知cardData-->
+    <ENID_TO_CARDDATA>FIXED_DICT
+        <Properties>
+            <id>
+                <Type>ENID</Type>
+            </id>
+            <cardData>
+                <Type>CardData</Type>
+            </cardData>
+        </Properties>
+    </ENID_TO_CARDDATA>
+    <LIST_ENID_TO_CARDDATA> ARRAY <of> ENID_TO_CARDDATA </of>	</LIST_ENID_TO_CARDDATA>
+
+
+
+	<LIST_STRING> ARRAY <of> STRING </of>	</LIST_STRING>
+	<LIST_VECTOR3> ARRAY <of> VECTOR3 </of>	</LIST_VECTOR3>
+	<LIST_ENTITYID> ARRAY <of> ENID </of>	</LIST_ENTITYID>
+	<LIST_CardData> ARRAY <of> CardData </of>	</LIST_CardData>
+
+
+	<LIST_UINT64> ARRAY <of> UINT64</of>	</LIST_UINT64>
+
+
+    <ID_LIST_CardData>FIXED_DICT
+        <Properties>
+            <ID1>
+                <Type>LIST_CardData</Type>
+            </ID1>
+            <ID2>
+                <Type>LIST_CardData</Type>
+            </ID2>
+        </Properties>
+    </ID_LIST_CardData>
+	<LIST_CARDID> ARRAY <of> CARDID </of>	</LIST_CARDID>
+
+
+
+    <LIST_STORE_DECK_DATA> ARRAY <of> STORE_DECK_DATA </of>	</LIST_STORE_DECK_DATA>
+    <LIST_BannerData> ARRAY <of> BannerData </of>	</LIST_BannerData>
+    <LIST_SIMPLE_CARD_DATA> ARRAY <of> SIMPLE_CARD_DATA </of>	</LIST_SIMPLE_CARD_DATA>
+
+    <SPACE_REQ_JSON>FIXED_DICT
+        <Properties>
+            <roomID>
+                <Type>ID</Type>
+            </roomID>
+            <sceneName>
+                <Type>STRING</Type>
+            </sceneName>
+            <spaceName>
+                <Type>UNICODE</Type>
+            </spaceName>
+            <hasPassword>
+                <Type>BOOL</Type>
+            </hasPassword>
+            <lan>
+                <Type>STRING</Type>
+            </lan>
+            <p>
+                <Type>UINT16</Type>
+            </p>
+        </Properties>
+    </SPACE_REQ_JSON>
+    <LIST_SPACE_REQ_JSON> ARRAY <of> SPACE_REQ_JSON </of>	</LIST_SPACE_REQ_JSON>
+
+
+</root>

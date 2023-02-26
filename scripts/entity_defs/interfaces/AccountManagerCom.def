@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Properties></Properties>
+	<BaseMethods>
+		<onPlayerEnter>
+			<Arg>DBID</Arg>
+			<Arg>STRING</Arg>
+			<Arg>CALL</Arg>
+		</onPlayerEnter>
+		<onPlayerDestroy>
+			<Arg>DBID</Arg>
+			<Arg>STRING</Arg>
+			<Arg>ID</Arg>
+		</onPlayerDestroy>
+	</BaseMethods>
+	<CellMethods></CellMethods>
+	<ClientMethods></ClientMethods>
+</root>

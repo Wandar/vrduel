@@ -1,0 +1,11 @@
+{
+    "python.analysis.extraPaths": [
+        "./scripts/base",
+        "./scripts/cell",
+        "./scripts/common",
+        "./scripts/data",
+        "./scripts/server_common",
+        "./scripts/user_type",
+        "./lib"
+    ]
+}

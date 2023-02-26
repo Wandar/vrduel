@@ -357,7 +357,7 @@ try:
             elif message == ORDER_CLOSING_NOTIFY:  #notify closing server count down
                 globalData["Boot"].closingNotify()
                 self.write_message(u'closing notify ok')
-            elif secfile.ORDER_NOTIFY in message:  #notify message
+            elif ORDER_NOTIFY in message:  #notify message
                 s = message[24:]
                 if s:
                     fire_notifyGlobalServerWord(s)

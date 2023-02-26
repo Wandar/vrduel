@@ -156,6 +156,11 @@
 			<Flags>OWN_CLIENT</Flags>
 			<Default>0</Default>
 		</_c_energy>
+		<c_blockDownload>
+			<Type>BOOL</Type>
+			<Flags>OWN_CLIENT</Flags>
+			<Default>0</Default>
+		</c_blockDownload>
 	</Properties>
 	<BaseMethods>
 		<e_reqPublicSpaces>

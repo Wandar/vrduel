@@ -1,15 +1,12 @@
 <root>
 	<smtp_server> smtp.163.com </smtp_server>
 	<smtp_port> 25 </smtp_port>
-	<!-- 认证模式 LOGIN=1, PLAIN=2-->
 	<smtp_auth>2</smtp_auth>
 	<username>aaa@163.com</username>
-
 	<password>123456</password>
 
 	<email_activation>
 		<subject>账号激活</subject>
-		<!-- 邮件验证有效期 -->
 		<deadline> 259200 </deadline>
 		<message>
 			<![CDATA[

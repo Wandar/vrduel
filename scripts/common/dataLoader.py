@@ -3,6 +3,8 @@ import json
 import xml.dom.minidom
 from xml.dom.minidom import parse
 
+
+
 try:
     import KBEngine
     import reloadSystem
@@ -68,7 +70,11 @@ def reloadData():
         reloadDataDebug()
     else:
         reloadDataRelease()
+        # makePinyin(D_CARD)
     reloadSystem.reloadAllObjectsData()
+
+
+
 
 
 def reloadDataDebug():
@@ -149,7 +155,8 @@ def checkCardData(item):
         ERROR_MSG("not has key",item)
         return
     if not item["name_en"]:
-        ERROR_MSG(item["key"]+" at least has an English name")
+        item["name_en"]=item["key"]
+        # WARNING_MSG(item["key"]+" at least has an English name")
     if not item["category"]:
         ERROR_MSG("no category ",item)
 

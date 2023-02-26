@@ -98,6 +98,9 @@ class AccountBA(ProxyBA):
     nickName = ""
     #c BASEC STRING STORED
     homeSceneName = ""
+    #c BASEC BOOL STORED
+    c_blockDownload=False
+
 
     #c BASE STRING STORED
     languagecode = ""
@@ -125,6 +128,7 @@ class AccountBA(ProxyBA):
     owncardlist = {}  #[{"i":200,"n":400},{}]
     decklist = []
     homeJson={} #display card in home scene
+
 
 
     ###############################################

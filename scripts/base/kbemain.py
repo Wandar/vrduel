@@ -5,23 +5,17 @@ import globalEventSystem
 from util import *
 import allcards
 
-
+sys.path.append(os.getenv("KBE_ROOT")+'/kbe/res/scripts/lib')
 
 """
 """
 def onBaseAppReady(isBootstrap):
-	"""
-    KBEngine method.
-    baseapp已经准备好了
-    @param isBootstrap: 是否为第一个启动的baseapp
-    @type isBootstrap: BOOL
-    """
 	INFO_MSG('onBaseAppReady: isBootstrap=%s, appID=%s, bootstrapGroupIndex=%s, bootstrapGlobalIndex=%s,debugVer=%d,engineVer=%d' % \
 			 (isBootstrap, os.getenv("KBE_COMPONENTID"), os.getenv("KBE_BOOTIDX_GROUP"),
 			  os.getenv("KBE_BOOTIDX_GLOBAL"),checkBase(),getEngineVersion()))
 
 	if getEngineVersion()!=1:
-		ERROR_MSG("please update your server engine at https://d1f8c6r0bq0fp8.cloudfront.net/vrduelserver.zip")
+		ERROR_MSG("please download newest server engine at https://d1f8c6r0bq0fp8.cloudfront.net/vrduelserver.zip")
 		return
 	globalData["baseapp%d"%getCID()]=True
 
@@ -33,10 +27,17 @@ def onBaseAppReady(isBootstrap):
 
 	isUpdating=os.getenv('KBE_UPDATING',False)
 	if isManagerBase():
+		testfunc()
 		if not isWindows():
 			setAppFlags(APP_FLAGS_NOT_PARTCIPATING_LOAD_BALANCING)
 		if not isUpdating:
 			createEntityLocally("Boot",{})
+
+def testfunc():
+	pass
+	# from xpinyin import Pinyin
+	# p = Pinyin()
+	# p.get_pinyin("上-=海")
 
 
 

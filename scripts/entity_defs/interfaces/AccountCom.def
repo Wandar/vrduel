@@ -45,6 +45,12 @@
 			<Flags>BASE_AND_CLIENT</Flags>
 			<Persistent>true</Persistent>
 		</homeSceneName>
+		<c_blockDownload>
+			<Type>BOOL</Type>
+			<Flags>BASE_AND_CLIENT</Flags>
+			<Persistent>true</Persistent>
+			<Default>0</Default>
+		</c_blockDownload>
 		<languagecode>
 			<Type>STRING</Type>
 			<Flags>BASE</Flags>

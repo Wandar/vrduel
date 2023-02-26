@@ -55,6 +55,8 @@ class AvatarBA(ProxyBA):
     #c OWN UINT32
     _c_energy=0
 
+    #c OWN BOOL
+    c_blockDownload=0
 
 
 
@@ -72,6 +74,7 @@ class AvatarBA(ProxyBA):
         pass
 
     def initAvatar(self, accountBA:AccountBA):
+        self.c_blockDownload=accountBA.c_blockDownload
         self.account = accountBA
         self.__ACCOUNT_NAME__=accountBA.__ACCOUNT_NAME__
         self.__ACCOUNT_PASSWORD__=accountBA.__ACCOUNT_PASSWORD__

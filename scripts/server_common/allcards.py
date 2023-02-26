@@ -4,7 +4,6 @@ import inspect
 import importlib
 
 
-
 allcardClass={}
 
 def mergeAllCards(isReload=False):

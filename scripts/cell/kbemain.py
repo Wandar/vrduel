@@ -11,10 +11,6 @@ import allcards
 
 
 def onInit(isReload):
-	"""
-	KBEngine method.
-	当引擎启动后初始化完所有的脚本后这个接口被调用
-	"""
 	DEBUG_MSG('onInit::isReload:%s' % isReload)
 	if not isReload:
 		KBEngine.globalData["cellapp%d"%getCID()]=True

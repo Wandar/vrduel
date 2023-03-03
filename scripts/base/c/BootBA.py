@@ -12,6 +12,9 @@ from util import *
 from c.ComponentBA import ComponentBA
 import sys
 
+from tornado import httpserver, ioloop, websocket, web, gen
+from tornado.websocket import websocket_connect
+
 sys.path.append(os.getenv("KBE_ROOT") + '/kbe/res/scripts/lib')
 
 STATE_NONE = 0
@@ -41,14 +44,13 @@ class BootBA(ComponentBA):
         #mu iap
         # self.initMuIap()
 
-        if not isDebugVer():
-            INFO_MSG("start websocket server")
-            #tornado control funcs
-            ws_app = Application()
-            server = httpserver.HTTPServer(ws_app)
-            self.server = server
-            server.listen(secfile.TORNADO_MANAGER_PORT)
-            self.setInterval(0.1, 0, self.onTimerTornado)
+        INFO_MSG("start websocket server")
+        #tornado control funcs
+        ws_app = Application()
+        server = httpserver.HTTPServer(ws_app)
+        self.server = server
+        server.listen(TORNADO_MANAGER_PORT)
+        self.setInterval(0.1, 0, self.onTimerTornado)
 
         self.setInterval(1000, 1000, self.onTimerCleanReloadPool)
         # self.setInterval(50,100,self.onTimerCleanGarbages)
@@ -225,13 +227,6 @@ class BootBA(ComponentBA):
 try:
     sys.path.append(os.getenv("curpath") + "/sec")
     import secfile
-except:
-    pass
-
-try:
-    from tornado import httpserver, ioloop, websocket, web, gen
-    from tornado.websocket import websocket_connect
-
 
     class VerifierClient(object):
         queueID = 0
@@ -323,58 +318,60 @@ try:
                 return
             self.keepaliveTime = time.time()
             self.reqSend("keepalive")
-
-
-    class WebSocketHandler(websocket.WebSocketHandler):
-        def check_origin(self, origin):
-            return True
-
-        def open(self):
-            pass
-
-        def on_message(self, message):
-            if not isDebugVer():
-                if message[:20] != secfile.ORDER_PASSWORD:
-                    self.write_message(u'wrongpass')
-                    return
-                message = message[20:]
-
-            if message == ORDER_RELOAD_SCRIPT:  #hot reload scripts
-                fire_reloadScript()
-                self.write_message(u'ok')
-            elif message == ORDER_RELOAD_DATA:  #hot reload data
-                fire_reloadData()
-                self.write_message(u'ok')
-            elif message == ORDER_RESET:  #reset all
-                globalData["Boot"].reset()
-                self.write_message(u'ok')
-            elif message == ORDER_GET_NUM:  #get accounts num
-                num = getAccountManagerBA().getAccountNum()
-                self.write_message(u'num=%d ok' % num)
-            elif message == ORDER_SAVE_DATA_AND_END:  #save all accounts data and close server
-                fire_onServerClose()
-                getGameManager().saveAllAccountsData(self)
-            elif message == ORDER_CLOSING_NOTIFY:  #notify closing server count down
-                globalData["Boot"].closingNotify()
-                self.write_message(u'closing notify ok')
-            elif ORDER_NOTIFY in message:  #notify message
-                s = message[24:]
-                if s:
-                    fire_notifyGlobalServerWord(s)
-                self.write_message(u'ok')
-            else:
-                self.write_message(u'unknowok')
-
-        def on_close(self):
-            pass
-
-
-    class Application(web.Application):
-        def __init__(self):
-            handlers = [
-                (r'/', WebSocketHandler)
-            ]
-            settings = {"template_path": "."}
-            web.Application.__init__(self, handlers, **settings)
 except:
     pass
+
+
+
+
+class WebSocketHandler(websocket.WebSocketHandler):
+    def check_origin(self, origin):
+        return True
+
+    def open(self):
+        pass
+
+    def on_message(self, message):
+        if not isDebugVer():
+            if message[:20] != secfile.ORDER_PASSWORD:
+                self.write_message(u'wrongpass')
+                return
+            message = message[20:]
+
+        if message == ORDER_RELOAD_SCRIPT:  #hot reload scripts
+            fire_reloadScript()
+            self.write_message(u'ok')
+        elif message == ORDER_RELOAD_DATA:  #hot reload data
+            fire_reloadData()
+            self.write_message(u'ok')
+        elif message == ORDER_RESET:  #reset all
+            globalData["Boot"].reset()
+            self.write_message(u'ok')
+        elif message == ORDER_GET_NUM:  #get accounts num
+            num = getAccountManagerBA().getAccountNum()
+            self.write_message(u'num=%d ok' % num)
+        elif message == ORDER_SAVE_DATA_AND_END:  #save all accounts data and close server
+            fire_onServerClose()
+            getGameManager().saveAllAccountsData(self)
+        elif message == ORDER_CLOSING_NOTIFY:  #notify closing server count down
+            globalData["Boot"].closingNotify()
+            self.write_message(u'closing notify ok')
+        elif ORDER_NOTIFY in message:  #notify message
+            s = message[24:]
+            if s:
+                fire_notifyGlobalServerWord(s)
+            self.write_message(u'ok')
+        else:
+            self.write_message(u'unknowok')
+
+    def on_close(self):
+        pass
+
+
+class Application(web.Application):
+    def __init__(self):
+        handlers = [
+            (r'/', WebSocketHandler)
+        ]
+        settings = {"template_path": "."}
+        web.Application.__init__(self, handlers, **settings)

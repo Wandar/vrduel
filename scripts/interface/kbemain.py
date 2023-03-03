@@ -12,16 +12,17 @@ if 0:
 	import interfaces.KBEngine
 
 sys.path.append(os.getenv("KBE_ROOT")+'/kbe/res/scripts/lib')
-
+from tornado import ioloop
 
 fpclient=None
 s_fpclient=None
 try:
 	sys.path.append(os.getenv("curpath")+"/sec")
 	from script import fpclient
-	from tornado import ioloop
 except:
 	pass
+
+
 
 s_message=[]
 

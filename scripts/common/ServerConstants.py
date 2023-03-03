@@ -9,6 +9,7 @@ SCENE_J={
 }
 
 
+TORNADO_MANAGER_PORT=35687
 
 
 

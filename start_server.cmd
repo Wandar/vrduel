@@ -15,7 +15,7 @@ echo UID=%uid
 
 
 SET status=1
-(TASKLIST|FIND /I "baseapp.exe"||SET status=0) 2>nul 1>nul
+(TASKLIST|FIND /I "loginapp.exe"||SET status=0) 2>nul 1>nul
 IF %status% EQU 1 (
 	@echo off
 	taskkill /t /im dbmgr.exe
@@ -28,10 +28,11 @@ IF %status% EQU 1 (
     taskkill /t /im bots.exe
 )
 
-
-
-set hideOther=1
-set multiopen=0
+if "%1"=="1" (
+  set HIDE=0
+) else (
+  set HIDE=1
+)
 
 
 SET hasmachine=1
@@ -43,15 +44,16 @@ IF %hasmachine% EQU 0 (
 	start %KBE_BIN_PATH%/logger.exe --cid=1000 --gus=100 --hide=0
 	start %KBE_BIN_PATH%/machine.exe --cid=2000 --gus=200 --hide=0
 )
-start %KBE_BIN_PATH%/interfaces.exe --cid=3000 --gus=300 --hide=%hideOther%
-start %KBE_BIN_PATH%/dbmgr.exe --cid=4000 --gus=400 --hide=%hideOther%
-start %KBE_BIN_PATH%/baseappmgr.exe --cid=5000 --gus=500 --hide=%hideOther%
-start %KBE_BIN_PATH%/cellappmgr.exe --cid=6000 --gus=600 --hide=%hideOther%
+start %KBE_BIN_PATH%/interfaces.exe --cid=3000 --gus=300 --hide=%HIDE%
+start %KBE_BIN_PATH%/dbmgr.exe --cid=4000 --gus=400 --hide=%HIDE%
+start %KBE_BIN_PATH%/baseappmgr.exe --cid=5000 --gus=500 --hide=%HIDE%
+start %KBE_BIN_PATH%/cellappmgr.exe --cid=6000 --gus=600 --hide=%HIDE%
 start %KBE_BIN_PATH%/baseapp.exe --cid=1 --gus=2 --hide=0
 start %KBE_BIN_PATH%/cellapp.exe --cid=8000 --gus=800 --hide=0
-start %KBE_BIN_PATH%/loginapp.exe --cid=9000 --gus=900 --hide=%hideOther%
+start %KBE_BIN_PATH%/loginapp.exe --cid=9000 --gus=900 --hide=%HIDE%
 
 
+set multiopen=0
 IF %multiopen% EQU 1 (
 start %KBE_BIN_PATH%/baseapp.exe --cid=7000 --gus=700 --hide=0
 start %KBE_BIN_PATH%/baseapp.exe --cid=7001 --gus=701 --hide=0

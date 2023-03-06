@@ -410,6 +410,7 @@ class SpaceCE(SpaceComponentCE):
         return d
 
 
+
     #p
     def tryDestroy(self):
         if self.isDestroying or self.isDestroyed:

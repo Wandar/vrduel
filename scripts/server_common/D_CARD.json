@@ -3586,31 +3586,5 @@
         "effect_ja": "",
         "disable": 0,
         "pinyin": ""
-    },
-    {
-        "id": 923846548,
-        "key": "dame20",
-        "name_en": "dame",
-        "name_zh": "dame",
-        "name_zh_tr": "达米",
-        "name_ja": "",
-        "package": "",
-        "prefab": "",
-        "diameter": 0.0,
-        "category": "MONSTER",
-        "attack": 1,
-        "defense": 1,
-        "health": 2,
-        "attr": 0,
-        "camp": 0,
-        "level": 4,
-        "race": "",
-        "alignment": 0,
-        "effect_en": "",
-        "effect_zh": "",
-        "effect_zh_tr": "",
-        "effect_ja": "",
-        "disable": 0,
-        "pinyin": "dame"
     }
 ]

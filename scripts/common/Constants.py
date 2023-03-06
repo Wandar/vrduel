@@ -61,7 +61,7 @@ class SPACE_STATE:
     trydestroying=4 #正在尝试销毁
 
 
-class CONTROLLER(MyEnum):
+class VR_CONTROLLER(MyEnum):
     none=0
     AButton=1
     AButtonDown=2

@@ -16,6 +16,14 @@ from tornado import httpserver, ioloop, websocket, web, gen
 from tornado.websocket import websocket_connect
 
 sys.path.append(os.getenv("KBE_ROOT") + '/kbe/res/scripts/lib')
+TORNADO_MANAGER_PORT=32564
+try:
+    sys.path.append(os.getenv("curpath") + "/sec")
+    import secfile
+    TORNADO_MANAGER_PORT=secfile.TORNADO_MANAGER_PORT
+except:
+    pass
+
 
 STATE_NONE = 0
 STATE_CONNECTING = 1
@@ -225,9 +233,6 @@ class BootBA(ComponentBA):
 
 
 try:
-    sys.path.append(os.getenv("curpath") + "/sec")
-    import secfile
-
     class VerifierClient(object):
         queueID = 0
         ws = None
@@ -335,6 +340,7 @@ class WebSocketHandler(websocket.WebSocketHandler):
         if not isDebugVer():
             if message[:20] != secfile.ORDER_PASSWORD:
                 self.write_message(u'wrongpass')
+                self.close()
                 return
             message = message[20:]
 

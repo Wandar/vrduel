@@ -21,7 +21,6 @@ from typing import *
 from annos import *
 from vec import *
 
-if 0:from KBEMath.Math import *
 if 0:from cellapp.KBEngine import *
 if 0:from baseapp.KBEngine import *
 

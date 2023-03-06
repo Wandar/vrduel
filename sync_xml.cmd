@@ -20,5 +20,4 @@ IF %clientpath% EQU 0 (
 python cmd/genXml.py
 
 
-echo clientPath=%clientpath%\Assets\Plugins\client_plugins
 start %KBE_BIN_PATH%/kbcmd --clientsdk=unity --outpath=%clientpath%\Assets\Scripts\client_plugins

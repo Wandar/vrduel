@@ -276,6 +276,11 @@ class AvatarBA(ProxyBA):
     #     yield "wait"
     #     self.unlock("tryTeleport")
 
+
+    #e
+    def e_cleanHome(self):
+        pass
+
     #e
     def e_leaveSpace(self):
         self.tryToLoginToSpace(self.account.idleScene)

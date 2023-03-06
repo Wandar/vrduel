@@ -524,13 +524,13 @@ class AvatarCE(ComponentCE):
 
 
     def controllerOperateInDuel(self,controllerbind):
-        if controllerbind==CONTROLLER.RightTrigger:
+        if controllerbind==VR_CONTROLLER.RightTrigger:
             pass
 
 
 
     def controllerOperateNotInDuel(self,controllerbind):
-        if controllerbind==CONTROLLER.RightTrigger:
+        if controllerbind==VR_CONTROLLER.RightTrigger:
             #programmed by client
             pass
 
